@@ -1,4 +1,4 @@
-@extends('base.layout')
+@extends('base.login_layout')
   
 @section('content')
 <main class="login-form">

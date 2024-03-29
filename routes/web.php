@@ -36,4 +36,5 @@ Route::middleware('authVarified')->group(function(){
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('companies', CompanyController::class);
     Route::resource('employees', EmployeeController::class);
+  
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel</title>
+    <title>Laravel - ItSolutionStuff.com</title>
     <link rel="stylesheet" href="{{ url('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="{{ url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
@@ -10,10 +10,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ url('/main.css') }}">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ url('/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     
     <!-- IonIcons -->
     <link rel="stylesheet" href="{{ url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
@@ -24,10 +20,6 @@
 </head>
 <body>
 
- @guest 
-@else
-@include('base.sidebar')
-@endguest
     
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
@@ -76,53 +68,11 @@
 <script src="{{ url('/dist/js/adminlte.js') }}"></script>
 <script src="{{ url('/plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{ url('/dist/js/demo.js') }}"></script>
-<script src="{{ url('/dist/js/pages/dashboard3.js') }}"></script>
 
-<script src="{{ url('/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ url('/plugins/jszip/jszip.min.js') }}"></script>
-<script src="{{ url('/plugins/pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ url('/plugins/pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ url('/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ url('/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('/dist/js/adminlte.min.js') }}"></script>
 <script src="{{ url('/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
-
-
-
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-
-<!-- bs-custom-file-input -->
-
-
-<script>
-$(function () {
-  bsCustomFileInput.init();
-});
-</script>
      
 </body>
 </html>
