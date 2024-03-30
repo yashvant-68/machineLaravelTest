@@ -1,6 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;  
+use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Stmt\Return_;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::redirect('/', 'login');
+
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+
+
+
+Route::middleware('authVarified')->group(function(){
+
+    Route::get('dashboard', [AuthController::class, 'dashboard']); 
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('companies', CompanyController::class);
+    Route::resource('employees', EmployeeController::class);
+  
 });
