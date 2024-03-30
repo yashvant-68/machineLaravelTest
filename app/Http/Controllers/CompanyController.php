@@ -34,9 +34,9 @@ class CompanyController extends Controller
       
         $request->validate([
             'company_name' => 'required|string|max:255',
-            'company_email' => 'nullable|email|unique:companies,email',
-             'company_logo' => 'nullable|dimensions:min_width=100,min_height=100',
-            'company_website' => 'nullable|string',
+            'company_email' => 'required|email|unique:companies,email',
+             'company_logo' => 'required|dimensions:min_width=100,min_height=100',
+            'company_website' => 'required|url',
         ]);
 
         $company = new Company();
@@ -82,9 +82,9 @@ class CompanyController extends Controller
 {
    $validator = $request->validate([
         'company_name' => 'required|string|max:255',
-        'company_email' => 'nullable|email',
-        'company_logo' => 'nullable|dimensions:min_width=100,min_height=100',
-        'company_website' => 'nullable|string',
+        'company_email' => 'required|email',
+        'company_logo' => 'dimensions:min_width=100,min_height=100',
+        'company_website' => 'required|string',
     ]);
   
 

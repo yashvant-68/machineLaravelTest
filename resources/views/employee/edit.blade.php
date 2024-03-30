@@ -12,71 +12,70 @@
  
  <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Edit Company</h3>
+      <h3 class="card-title">Edit Employee</h3>
     </div>
    
-    <form action="{{route('companies.update',['company' => $edit_data->id])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('employees.update',$edit_data->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <input type="hidden" name="update_id" value="{{$edit_data->id}}">
       <div class="card-body">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="company_name">Company Name</label>
-                    <input type="text" required  class="form-control" name="company_name" id="company_name" value="{{$edit_data->name}}" placeholder="Enter Company Name">
-                    @error('company_name')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-                  </div>
+                    <label for="company_id">Company</label>
+                    <select name="company_id" required class="form-control" id="company_id">
+                        <option value="">Select Company</option>
+                        @foreach($company_details as $val)
+                        <option value="{{$val->id}}" @if($val->id == $edit_data->companyId) selected @endif>{{$val->name}}</option>
+                        @endforeach
+                    </select>
+                    @error('company_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="company_email">Company Email</label>
-                    <input type="email" class="form-control" name="company_email" value="{{$edit_data->email}}" id="company_email" placeholder="Enter Company Email">
-                    @error('company_email')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-                  </div>
-            </div>
-
-          
             
+
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="company_website">Company Website</label>
-                    <input type="text" class="form-control" name="company_website" value="{{$edit_data->website}}" id="company_website" placeholder="Enter Company Website">
-                    @error('company_website')
+                    <label for="employee_first_name">Employee First Name</label>
+                    <input type="text" required  class="form-control" name="employee_first_name" value="{{$edit_data->firstname}}" id="employee_first_name" placeholder="Enter Employee Name">
+                    @error('employee_first_name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="employee_last_name">Employee Last Name</label>
+                    <input type="text" required  class="form-control" name="employee_last_name" id="employee_last_name" value="{{$edit_data->lastname}}" placeholder="Enter Employee Last Name">
+                    @error('employee_last_name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="employee_email">Employee Email</label>
+                    <input type="email" class="form-control" name="employee_email" id="employee_email" value="{{$edit_data->email}}" placeholder="Enter Employee Email">
+                    @error('employee_email')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                   </div>
             </div>
 
             <div class="col-md-6">
-                <div class="row">
-
-               
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <label for="company_logo">Company Logo (min_width=100,min_height=100)</label>
-                        <input type="file" accept="image/*" class="form-control" name="company_logo" id="company_logo"
-                            @if(!empty($edit_data->company_logo)) value="{{$edit_data->company_logo}}" @endif>
-                        @error('company_logo')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="col-sm-4">
-                    <img src="{{ asset('storage/'.$edit_data->company_logo) }}" alt="Company Logo" style="min-width: 100px; max-width: 120px; min-height: 100px; max-height: 120px; float:right">
-                </div>
-               
+                <div class="form-group">
+                    <label for="employee_phone">Employee Phone</label>
+                    <input type="number" class="form-control" name="employee_phone" id="employee_phone" value="{{$edit_data->phone}}" placeholder="Enter Employee Phone">
+                    @error('employee_phone')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                  </div>
             </div>
-            </div>
-          
+
 
         </div>
-       
         
       <div class="card-footer">
         <button type="submit" class="btn btn-primary">Submit</button>

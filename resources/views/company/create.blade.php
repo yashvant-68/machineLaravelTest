@@ -31,7 +31,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="company_email">Company Email</label>
-                    <input type="email" class="form-control" name="company_email" id="company_email" placeholder="Enter Company Email">
+                    <input type="email" class="form-control" name="company_email" required id="company_email" placeholder="Enter Company Email">
                     @error('company_email')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -41,7 +41,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="company_logo">Company Logo (min_width=100,min_height=100)</label>
-                    <input type="file" class="form-control" accept="image/*" name="company_logo" id="company_logo">
+                    <input type="file" class="form-control" required accept="image/*" name="company_logo" id="company_logo">
                     @error('company_logo')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -50,7 +50,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="company_website">Company Website</label>
-                    <input type="text" class="form-control" name="company_website" id="company_website" placeholder="Enter Company Website">
+                    <input type="text" class="form-control" required name="company_website" id="company_website" placeholder="Enter Company Website">
                     @error('company_website')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

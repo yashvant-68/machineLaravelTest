@@ -56,7 +56,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="employee_email">Employee Email</label>
-                    <input type="email" class="form-control" name="employee_email" id="employee_email" placeholder="Enter Employee Email">
+                    <input type="email" class="form-control" name="employee_email" required id="employee_email" placeholder="Enter Employee Email">
                     @error('employee_email')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -66,7 +66,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="employee_phone">Employee Phone</label>
-                    <input type="number" class="form-control" name="employee_phone" id="employee_phone" placeholder="Enter Employee Phone">
+                    <input type="number" class="form-control" required name="employee_phone" id="employee_phone" placeholder="Enter Employee Phone">
                     @error('employee_phone')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

@@ -10,32 +10,40 @@
    
     <div class="card card-primary">
         <div class="card-header">
-          <h3 class="card-title">Company Details</h3>
+          <h3 class="card-title">Employee Details</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <strong><i class="fas fa-book mr-1"></i> Company Name</strong>
 
           <p class="text-muted">
-           {{$show_data->name}}
+           {{$show_data->company_name}}
           </p>
 
           <hr>
 
-          <strong><i class="fas fa-map-marker-alt mr-1"></i> Company Email</strong>
+          <strong><i class="fas fa-book mr-1"></i> Employee First Name</strong>
+
+          <p class="text-muted">
+           {{$show_data->firstname}}
+          </p>
+
+          <hr>
+
+          <strong><i class="fas fa-map-marker-alt mr-1"></i> Employee Last Name</strong>
+
+          <p class="text-muted"> {{$show_data->lastname}}</p>
+
+          <hr>
+          <strong><i class="fas fa-map-marker-alt mr-1"></i> Employee Email</strong>
 
           <p class="text-muted"> {{$show_data->email}}</p>
 
           <hr>
-          <strong><i class="fas fa-map-marker-alt mr-1"></i> Company Website</strong>
 
-          <p class="text-muted"> {{$show_data->website}}</p>
+          <strong><i class="fas fa-map-marker-alt mr-1"></i> Employee Phone</strong>
 
-          <hr>
-
-          <strong><i class="fas fa-map-marker-alt mr-1"></i> Company logo</strong>
-
-          <p class="text-muted mt-3"> <img src="{{ asset('storage/'.$show_data->company_logo) }}" alt="Company Logo" style="min-width: 100px; max-width: 120px; min-height: 100px; max-height: 120px;"></p>
+          <p class="text-muted"> {{$show_data->phone}}</p>
         </div>
         
       </div>
